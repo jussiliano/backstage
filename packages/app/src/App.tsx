@@ -60,9 +60,14 @@ const app = createApp({
     SignInPage: props => <SignInPage {...props} auto providers={['guest']} />,
   },
 });
+import { HomepageCompositionRoot } from '@backstage/plugin-home';
+import { HomePage } from './components/home/HomePage';
 
 const routes = (
   <FlatRoutes>
+     <Route path="/" element={<HomepageCompositionRoot />}>
+      <HomePage />
+    </Route>
     <Route path="/" element={<Navigate to="catalog" />} />
     <Route path="/catalog" element={<CatalogIndexPage />} />
     <Route
